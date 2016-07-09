@@ -85,6 +85,15 @@ def solve(source, dest, time_taken, level, solution, solution_set):
 
 solution_set = []
 
+# Handle 0 and 1 person cases
+if len(sys.argv) < 2:
+    print 'Please specify atleast two input times'
+    sys.exit(0)
+elif len(sys.argv) == 2:
+    print 'Solution: ( 1 )',
+    print ' Total Time: ', sys.argv[1], 'min'
+    sys.exit(0)
+    
 # Read crossing time for each person from command-line
 for x in xrange(1, len(sys.argv)):
     source.append(x)
