@@ -8,13 +8,16 @@
 
 # Author: D. Murali
 
+import sys
 import itertools
 
 # The set of people at the origin of the bridge
-source = [ 'A', 'B', 'C', 'D' ]
+#source = [ 'A', 'B', 'C', 'D' ]
+source = []
 
 # Time to cross the bridge for each person
-crossing_time = { 'A':1, 'B':2, 'C':7, 'D':10 }
+#crossing_time = { 'A':1, 'B':2, 'C':7, 'D':10 }
+crossing_time = {}
 
 # The set of people on the other side of the bridge
 dest = []
@@ -26,7 +29,7 @@ def move_single(source, dest, l, time_taken, level, solution, solution_set):
     #print '    Moving (', l , ')', ': ', source, dest,
     #print ' Cost: ', crossing_time[l]
     time_taken += crossing_time[l]
-    solution += ', ' + l + ', '
+    solution += ', ' + str(l) + ', '
     solve(source[:], dest[:], time_taken, level+1, solution, solution_set)
 
 # Move a pair of persons from source to destination
@@ -44,7 +47,7 @@ def move_pair(source, dest, node, time_taken, level, solution, solution_set):
     dest.append(y)
     time_taken += max(crossing_time[x], crossing_time[y])
     #print 'Moving (', x, ',', y, ')', ' to dest: ', source, dest,
-    solution += x + y
+    solution += str(x) + '+' + str(y)
     #print ' Cost: ', max(crossing_time[x], crossing_time[y])
 
     # All persons crossed over?
@@ -81,6 +84,11 @@ def solve(source, dest, time_taken, level, solution, solution_set):
         move_pair(source[:], dest[:], node, time_taken, level, solution, solution_set)
 
 solution_set = []
+
+# Read crossing time for each person from command-line
+for x in xrange(1, len(sys.argv)):
+    source.append(x)
+    crossing_time[x] = int(sys.argv[x])
 
 solve(source[:], dest[:], 0, 0, '', solution_set)
 
