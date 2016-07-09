@@ -1,9 +1,9 @@
-# Solve four persons crossing a bridge problem
+# Solve N persons crossing a bridge problem
 # Two persons can cross at a time sharing one torch. One person has to
-# return with the torch. The 4 persons cross the bridge at different speeds.
+# return with the torch. The N persons cross the bridge at different speeds.
 # When a pair cross the bridge, their speed is determined by the slowest of
 # them. The objective of the puzzle is to find the combination of persons
-# going back and forth until all persons are on the other side in the
+# going back and forth until all N persons are on the other side in the
 # least possible amount of time.
 
 # Author: D. Murali
