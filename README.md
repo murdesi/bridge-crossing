@@ -10,7 +10,7 @@ Python 2.7 or above
 
 Usage:
 
-python puzzle.py time-for-person1 time-for-person2 ... time_for_personN
+python puzzle.py time_for_person1 time_for_person2 ... time_for_personN
 
 Example:
 
@@ -19,6 +19,8 @@ python puzzle.py 1 2 7 10
 where, time taken for person 1 to cross the bridge is 1 min, for person 2 it is 2 mins and so on
 
 Output:
+
+In the Solution string below, M+N indicates that person M and person N cross to the other side. A single number N indicates that person N crosses back to the starting point.
 
 Solution: ( 1+2, 1, 3+4, 2, 1+2 )  Total Time:  17 min
 ---------------------------------------------------
